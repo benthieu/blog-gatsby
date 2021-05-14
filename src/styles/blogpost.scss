@@ -1,0 +1,50 @@
+@import "default";
+
+main.blogpost {
+    article {
+        padding: 0 30px;
+        > img {
+            max-width: 100%;
+        }
+        header {
+            display: block;
+            max-width: 750px;
+            margin: 20px auto 30px auto;
+            h1 {
+                margin-top: 50px;
+            }
+            h3 {
+                font-family: "Livvic", sans-serif;
+                &:not(.back-link) {
+                    float: right;
+                }
+                &.back-link a {
+                    text-decoration: none;
+                }
+            }
+        }
+        div.body {
+            max-width: 750px;
+            margin: 50px auto 30px auto;
+            p {
+                white-space: pre-wrap;
+            }
+            img,
+            p img {
+                max-width: 100%;
+                display: block;
+                margin: 40px auto;
+            }
+            h3 {
+                font-size: 26px;
+                margin-top: 30px;
+                text-transform: none;
+            }
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        article {
+            padding: 0 15px;
+        }
+    }
+}

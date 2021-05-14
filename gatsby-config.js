@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "My personal blog",
+    title: "Blog - Benjamin Mathieu",
   },
   plugins: [
     {
@@ -30,6 +30,16 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-prismjs`
+          },
+        ],
+      },
     },
   ],
 };

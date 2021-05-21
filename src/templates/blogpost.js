@@ -1,4 +1,5 @@
 import React from 'react'
+import Helmet from "react-helmet"
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
@@ -12,6 +13,13 @@ class BlogPostTemplate extends React.Component {
 
     return (
         <main className="blogpost">
+            <Helmet>
+                <title>{post.title.concat(" - Benjamin's Tech Blog")}</title>
+                <meta property="og:title" content={post.title.concat(" - Benjamin's Tech Blog")} />
+                <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
+                <meta property="og:image" content={post.heroImage.resize.src} />
+                <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
+            </Helmet>
             <article>
                 <header>
                     <h3>{post.publishDate}</h3>
@@ -47,12 +55,16 @@ export const pageQuery = graphql`
         slug
         publishDate(formatString: "LL")
         heroImage {
-            fluid(maxWidth: 1300, maxHeight: 400, resizingBehavior: FILL, background: "rgb:000000") {
+            fluid(maxWidth: 1300, maxHeight: 400, resizingBehavior: FILL, background: "rgb:000000", quality: 80) {
                 ...GatsbyContentfulFluid_tracedSVG
+            }
+            resize(resizingBehavior: FILL, width: 1200, height: 630, quality: 80) {
+                src
             }
         }
         description {
             childMarkdownRemark {
+                rawMarkdownBody
                 html
             }
         }

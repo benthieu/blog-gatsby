@@ -1,12 +1,10 @@
 import * as React from "react"
+import Helmet from "react-helmet"
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { Link } from 'gatsby'
 import FooterText from '../components/footer'
 
-import "@fontsource/livvic/300.css" // Weight 500.
-import "@fontsource/noto-serif-jp/200.css" // Loads the italic variant.
-import "@fontsource/noto-serif-jp/400.css" // Loads the italic variant.
 import "../styles/index.scss"
 
 // markup
@@ -15,6 +13,13 @@ class IndexPage extends React.Component {
   const posts = this.props.data.allContentfulBlogPost.edges;
   return (
     <main className="overview">
+      <Helmet>
+        <title>Blog - Benjamin Mathieu</title>
+        <meta property="og:title" content="Benjamin's Tech Blog" />
+        <meta property="og:description" content="My tech blog - things I discover, build or fix." />
+        <meta property="og:image" content={this.props.data.ogFile.publicURL} />
+        <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
+      </Helmet>
       <header>
         <h1>
           Welcome to my TechBlog!
@@ -55,7 +60,7 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "LL")
           heroImage {
-            fluid(maxWidth: 500, maxHeight: 440, resizingBehavior: FILL) {
+            fluid(maxWidth: 500, maxHeight: 440, resizingBehavior: FILL, quality: 80) {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }
@@ -66,6 +71,9 @@ export const pageQuery = graphql`
           }
         }
       }
+    }
+    ogFile: file(name: {eq: "og"}) {
+      publicURL
     }
   }
 `

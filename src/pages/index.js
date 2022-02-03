@@ -1,11 +1,10 @@
+import { graphql, Link } from 'gatsby'
+import { GatsbyImage } from "gatsby-plugin-image"
 import * as React from "react"
 import Helmet from "react-helmet"
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import { Link } from 'gatsby'
 import FooterText from '../components/footer'
-
 import "../styles/index.scss"
+
 
 // markup
 class IndexPage extends React.Component {
@@ -29,7 +28,7 @@ class IndexPage extends React.Component {
         return (
           <article key={node.slug}>
             <Link to={`/blog/${node.slug}`}>
-              <Img alt="" fluid={node.heroImage.fluid} />
+              <GatsbyImage image={node.heroImage.gatsbyImageData} />
             </Link>
             <h3>{node.publishDate}</h3>
             <h2>
@@ -60,9 +59,7 @@ export const pageQuery = graphql`
           slug
           publishDate(formatString: "LL")
           heroImage {
-            fluid(maxWidth: 500, maxHeight: 440, resizingBehavior: FILL, quality: 80) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+            gatsbyImageData(width: 500, height: 440, resizingBehavior: FILL, quality: 80, placeholder: TRACED_SVG)
           }
           description {
             childMarkdownRemark {

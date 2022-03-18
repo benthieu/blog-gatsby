@@ -14,9 +14,11 @@ class IndexPage extends React.Component {
     <main className="overview">
       <Helmet>
         <title>Blog - Benjamin Mathieu</title>
+        <meta property="og:site_name" content="Benjamin's Tech Blog" />
         <meta property="og:title" content="Benjamin's Tech Blog" />
         <meta property="og:description" content="My tech blog - things I discover, build or fix." />
-        <meta property="og:image" content={this.props.data.ogFile.publicURL} />
+        <meta property="og:image:secure_url" itemprop="image" content={this.props.data.ogFile.publicURL} />
+        <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
       </Helmet>
       <header>

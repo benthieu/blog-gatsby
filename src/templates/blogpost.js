@@ -14,9 +14,11 @@ class BlogPostTemplate extends React.Component {
             <main className="blogpost">
                 <Helmet>
                     <title>{post.title.concat(" - Benjamin's Tech Blog")}</title>
+                    <meta property="og:site_name" content="Benjamin's Tech Blog" />
                     <meta property="og:title" content={post.title.concat(" - Benjamin's Tech Blog")} />
                     <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
-                    <meta property="og:image" content={post.resized.gatsbyImageData.images.fallback.src} />
+                    <meta property="og:image:secure_url" itemprop="image" content={post.resized.gatsbyImageData.images.fallback.src} />
+                    <meta property="og:type" content="website" />
                     <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
                 </Helmet>
                 <article>
@@ -66,8 +68,8 @@ export const pageQuery = graphql`
         }
         resized: heroImage {
             gatsbyImageData(
-              width: 1200
-              height: 630
+              width: 600
+              height: 315
               resizingBehavior: FILL
               quality: 80
               backgroundColor: ""

@@ -68,8 +68,8 @@ export const pageQuery = graphql`
         }
         resized: heroImage {
             gatsbyImageData(
-              width: 600
-              height: 315
+              width: 256
+              height: 256
               resizingBehavior: FILL
               quality: 80
               backgroundColor: ""

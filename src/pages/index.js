@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
         <meta property="og:site_name" content="Benjamin's Tech Blog" />
         <meta property="og:title" content="Benjamin's Tech Blog" />
         <meta property="og:description" content="My tech blog - things I discover, build or fix." />
-        <meta property="og:image:secure_url" itemprop="image" content={this.props.data.ogFile.publicURL} />
+        <meta property="og:image:secure_url" itemprop="image" content={this.props.data.ogFile.childImageSharp.resize.src} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
       </Helmet>
@@ -72,7 +72,11 @@ export const pageQuery = graphql`
       }
     }
     ogFile: file(name: {eq: "og"}) {
-      publicURL
+      childImageSharp {
+        resize(height: 256, width: 256) {
+          src
+        }
+      }
     }
   }
 `

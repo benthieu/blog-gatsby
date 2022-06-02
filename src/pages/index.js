@@ -15,6 +15,9 @@ class IndexPage extends React.Component {
       <Helmet>
         <title>Blog - Benjamin Mathieu</title>
         <meta name="description" content="My tech blog - things I discover, build or fix."/>
+        <meta itemprop="name" content="Benjamin's Tech Blog" />
+        <meta itemprop="description" content="My tech blog - things I discover, build or fix." />
+        <meta itemprop="image" content={this.props.data.ogFile.childImageSharp.resize.src} />
         <meta property="og:site_name" content="Benjamin's Tech Blog" />
         <meta property="og:title" content="Benjamin's Tech Blog" />
         <meta property="og:description" content="My tech blog - things I discover, build or fix." />

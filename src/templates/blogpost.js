@@ -15,6 +15,9 @@ class BlogPostTemplate extends React.Component {
                 <Helmet>
                     <title>{post.title.concat(" - Benjamin's Tech Blog")}</title>
                     <meta name="description" content={post.description.childMarkdownRemark.rawMarkdownBody}/>
+                    <meta itemprop="name" content={post.title.concat(" - Benjamin's Tech Blog")} />
+                    <meta itemprop="description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
+                    <meta itemprop="image" content={post.resized.gatsbyImageData.images.fallback.src} />
                     <meta property="og:site_name" content="Benjamin's Tech Blog" />
                     <meta property="og:title" content={post.title.concat(" - Benjamin's Tech Blog")} />
                     <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />

@@ -18,7 +18,7 @@ class IndexPage extends React.Component {
         <meta property="og:site_name" content="Benjamin's Tech Blog" />
         <meta property="og:title" content="Benjamin's Tech Blog" />
         <meta property="og:description" content="My tech blog - things I discover, build or fix." />
-        <meta property="og:image:secure_url" itemprop="image" content={this.props.data.ogFile.childImageSharp.resize.src} />
+        <meta property="og:image" itemprop="image" content={this.props.data.ogFile.childImageSharp.resize.src} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
         <meta name="twitter:card" content="summary_large_image" />

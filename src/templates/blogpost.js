@@ -19,6 +19,7 @@ class BlogPostTemplate extends React.Component {
                     <meta property="og:title" content={post.title.concat(" - Benjamin's Tech Blog")} />
                     <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
                     <meta property="og:image:secure_url" itemprop="image" content={post.resized.gatsbyImageData.images.fallback.src} />
+                    <meta property="og:image" itemprop="image" content={post.resized.gatsbyImageData.images.fallback.src} />
                     <meta property="og:type" content="website" />
                     <meta property="og:url" content={"https://blog.benjamin-mathieu.ch/blog/".concat(post.slug)} />
                     <meta name="twitter:card" content="summary_large_image" />

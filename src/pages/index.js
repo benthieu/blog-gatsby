@@ -21,11 +21,11 @@ class IndexPage extends React.Component {
         <meta property="og:image:secure_url" itemprop="image" content={this.props.data.ogFile.childImageSharp.resize.src} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta property="twitter:domain" content="blog.benjamin-mathieu.ch"/>
-        <meta property="twitter:url" content="https://blog.benjamin-mathieu.ch"/>
-        <meta name="twitter:title" content="Benjamin's Tech Blog"/>
-        <meta name="twitter:description" content="My tech blog - things I discover, build or fix."/>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="blog.benjamin-mathieu.ch" />
+        <meta property="twitter:url" content="https://blog.benjamin-mathieu.ch" />
+        <meta name="twitter:title" content="Benjamin's Tech Blog" />
+        <meta name="twitter:description" content="My tech blog - things I discover, build or fix." />
         <meta name="twitter:image" content={this.props.data.ogFile.childImageSharp.resize.src} />
       </Helmet>
       <header>

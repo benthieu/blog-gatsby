@@ -14,12 +14,19 @@ class BlogPostTemplate extends React.Component {
             <main className="blogpost">
                 <Helmet>
                     <title>{post.title.concat(" - Benjamin's Tech Blog")}</title>
+                    <meta name="description" content={post.description.childMarkdownRemark.rawMarkdownBody}/>
                     <meta property="og:site_name" content="Benjamin's Tech Blog" />
                     <meta property="og:title" content={post.title.concat(" - Benjamin's Tech Blog")} />
                     <meta property="og:description" content={post.description.childMarkdownRemark.rawMarkdownBody} />
                     <meta property="og:image:secure_url" itemprop="image" content={post.resized.gatsbyImageData.images.fallback.src} />
                     <meta property="og:type" content="website" />
-                    <meta property="og:url" content="https://blog.benjamin-mathieu.ch" />
+                    <meta property="og:url" content={"https://blog.benjamin-mathieu.ch/blog/".concat(post.slug)} />
+                    <meta name="twitter:card" content="summary_large_image"/>
+                    <meta property="twitter:domain" content="blog.benjamin-mathieu.ch"/>
+                    <meta property="twitter:url" content={"https://blog.benjamin-mathieu.ch/blog/".concat(post.slug)}/>
+                    <meta name="twitter:title" content="Benjamin's Tech Blog"/>
+                    <meta name="twitter:description" content="My tech blog - things I discover, build or fix."/>
+                    <meta name="twitter:image" content={this.props.data.ogFile.childImageSharp.resize.src} />
                 </Helmet>
                 <article>
                     <header>
